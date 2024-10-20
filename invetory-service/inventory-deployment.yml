@@ -1,0 +1,23 @@
+# inventory-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-service-deployment
+  labels:
+    app: inventory-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: inventory-service
+  template:
+    metadata:
+      labels:
+        app: inventory-service
+    spec:
+      containers:
+      - name: inventory-service
+        image: <your-acr-registry-url>/order-service:latest
+        ports:
+        - containerPort: 5001  # Flask app for Order Service is running on port 5001
+

@@ -1,0 +1,14 @@
+# order-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: order-service
+  ports:
+    - protocol: TCP
+      port: 81  # External port (can be different from the user service)
+      targetPort: 5001  # Port inside the container (Flask app listens here)
+

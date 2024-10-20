@@ -1,0 +1,23 @@
+# order-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-deployment
+  labels:
+    app: order-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service
+        image: <your-acr-registry-url>/order-service:latest
+        ports:
+        - containerPort: 5001  # Flask app for Order Service is running on port 5001
+

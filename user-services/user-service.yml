@@ -1,0 +1,14 @@
+# user-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  type: LoadBalancer  # Exposes the service to the internet
+  selector:
+    app: user-service
+  ports:
+    - protocol: TCP
+      port: 80  # Port exposed to the outside world
+      targetPort: 5000  # Port that the Flask app inside the container listens to
+:

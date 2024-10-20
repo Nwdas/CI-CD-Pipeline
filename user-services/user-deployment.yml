@@ -1,0 +1,23 @@
+# user-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service-deployment
+  labels:
+    app: user-service
+spec:
+  replicas: 3  # This means 3 instances of this service will run
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - name: user-service
+        image: <your-acr-registry-url>/user-service:latest  # Docker image from Azure Container Registry
+        ports:
+        - containerPort: 5000  # Flask app is running on port 5000
+
