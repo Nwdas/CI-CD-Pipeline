@@ -41,8 +41,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to AKS
+      - name: Configure kubectl to use AKS
         run: |
           az aks get-credentials --resource-group myResourceGroup --name ci-cd-pipeline
+
+      - name: Deploy to AKS
+        run: |
           kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
 
