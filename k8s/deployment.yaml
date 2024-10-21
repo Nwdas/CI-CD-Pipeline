@@ -18,6 +18,6 @@ spec:
       - name: myregistrykey        # This is the secret name
       containers:
       - name: user-service
-        image: Nwdas/user-service:latest  # Replace with your Docker image
+        image: nwdas/user-service:latest  # Replace with your Docker image
         ports:
         - containerPort: 80
