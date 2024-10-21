@@ -25,8 +25,8 @@ jobs:
       - name: Build and Push User Service Docker image
         run: |
           docker build -t user-service ./user-service
-          docker tag user-service:latest myRegistry/user-service:latest
-          docker push myRegistry/user-service:latest
+          docker tag user-service:latest regone/user-service:latest
+          docker push regone/user-service:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -34,6 +34,6 @@ jobs:
     steps:
       - name: Deploy to AKS
         run: |
-          az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+          az aks get-credentials --resource-group myResourceGroup --name ci-cd-pipeline
           kubectl apply -f k8s/deployment.yaml
 

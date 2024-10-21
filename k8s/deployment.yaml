@@ -1,4 +1,3 @@
-# user-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,7 +5,7 @@ metadata:
   labels:
     app: user-service
 spec:
-  replicas: 3  # This means 3 instances of this service will run
+  replicas: 3  # Number of container instances to run
   selector:
     matchLabels:
       app: user-service
@@ -17,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: regone.azurecr.io/user-service:latest  # Docker image from Azure Container Registry
+        image: nwdas/user-service:latest  # Replace with your Docker image
         ports:
-        - containerPort: 5000  # Flask app is running on port 5000
+        - containerPort: 80
 
