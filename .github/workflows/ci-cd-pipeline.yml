@@ -19,9 +19,9 @@ jobs:
 
       - name: Log in to Azure
         uses: azure/login@v1
-          env:
-          CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-          with: 
+        env:
+         CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+        with: 
           creds: ${{ env.CREDENTIALS }}
           
 
