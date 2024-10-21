@@ -30,15 +30,9 @@ jobs:
 
       - name: Build and Push User Service Docker image
         run: |
-<<<<<<< HEAD
-          docker build -t user-service ./user-service
-          docker tag user-service:latest regone/user-service:latest
-          docker push regone/user-service:latest
-=======
           docker build -t user-service ./user-services  # Ensure this path exists
           docker tag user-service:latest ${{ secrets.DOCKER_USERNAME }}/user-service:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/user-service:latest
->>>>>>> d311beab81a9baaf55bd74123b5856a8f8b3bb1c
 
   deploy:
     runs-on: ubuntu-latest
@@ -58,9 +52,5 @@ jobs:
 
       - name: Deploy to AKS
         run: |
-<<<<<<< HEAD
-          az aks get-credentials --resource-group myResourceGroup --name ci-cd-pipeline
-=======
->>>>>>> d311beab81a9baaf55bd74123b5856a8f8b3bb1c
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
