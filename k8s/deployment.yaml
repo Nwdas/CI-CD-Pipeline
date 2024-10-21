@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: nwdas/user-service:latest  # Replace with your Docker image
+        image: Nwdas/user-service:latest  # Replace with your Docker image
         ports:
         - containerPort: 80
 
