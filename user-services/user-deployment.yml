@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: user-service
-        image: <your-acr-registry-url>/user-service:latest  # Docker image from Azure Container Registry
+        image: regone.azurecr.io/user-service:latest  # Docker image from Azure Container Registry
         ports:
         - containerPort: 5000  # Flask app is running on port 5000
 
