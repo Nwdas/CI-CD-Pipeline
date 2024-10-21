@@ -27,7 +27,7 @@ jobs:
 
       - name: Build and Push User Service Docker image
         run: |
-          docker build -t user-service ./user-service
+          docker build -t user-service ./user-services
           docker tag user-service:latest reqone/user-service:latest
           docker push reqone/user-service:latest
 
