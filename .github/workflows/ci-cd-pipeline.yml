@@ -20,16 +20,16 @@ jobs:
       - name: Log in to Azure
         uses: azure/login@v1
         env:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          with: 
-          creds: ${{ env.CREDENTIALS }}
+         CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
+         with: 
+         creds: ${{ env.CREDENTIALS }}
           
 
       - name: Build and Push User Service Docker image
         run: |
           docker build -t user-service ./user-service
-          docker tag user-service:latest myRegistry/user-service:latest
-          docker push myRegistry/user-service:latest
+          docker tag user-service:latest reqone/user-service:latest
+          docker push reqone/user-service:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -37,6 +37,6 @@ jobs:
     steps:
       - name: Deploy to AKS
         run: |
-          az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+          az aks get-credentials --resource-group myResourceGroup --name ci-cd-pipeline
           kubectl apply -f k8s/deployment.yaml
 
