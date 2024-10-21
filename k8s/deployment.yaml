@@ -14,9 +14,10 @@ spec:
       labels:
         app: user-service
     spec:
+      imagePullSecrets:           # Add this section here
+      - name: myregistrykey        # This is the secret name
       containers:
       - name: user-service
         image: Nwdas/user-service:latest  # Replace with your Docker image
         ports:
         - containerPort: 80
-
