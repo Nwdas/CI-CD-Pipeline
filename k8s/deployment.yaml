@@ -15,7 +15,7 @@ spec:
         app: user-service
     spec:
       imagePullSecrets:           # Add this section here
-      - name: myregistrykey2        # This is the secret name
+      - name: myregistrykey3        # This is the secret name
       containers:
       - name: user-service
         image: nwdas/user-service:latest  # Replace with your Docker image
