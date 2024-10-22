@@ -18,6 +18,6 @@ spec:
       - name: myregistrykey3        # This is the secret name
       containers:
       - name: user-service
-        image: regone.azurecr.io/user-service:latest  # Replace with your Docker image
+        image: nwdas/user-service/user-service:latest  # Replace with your Docker image
         ports:
         - containerPort: 80
